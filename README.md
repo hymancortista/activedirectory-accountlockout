@@ -2,13 +2,10 @@
 <img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
 </p>
 
-<h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
+<h1>Dealing with Account Lockouts</h1>
 This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
 
 
-<h2>Video Demonstration</h2>
-
-- ### [YouTube: How to Deploy on-premises Active Directory within Azure Compute](https://www.youtube.com)
 
 <h2>Environments and Technologies Used</h2>
 
@@ -22,18 +19,20 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Windows Server 2022
 - Windows 10 (21H2)
 
-<h2>Deployment and Configuration Steps</h2>
+<h2>Steps to Unlock Accounts when Locked Out</h2>
 
-Dealing with Account Lockouts
+In order for accounts to be locked out of access after multiple failed attempts, do the following<br />
+Configure Group Policy to Lockout the account after 5 attempts:
+<img width="931" height="705" alt="image" src="https://github.com/user-attachments/assets/6a2f953c-e66b-4cc2-8768-0fb0ec9360cb" />
+
+
 Get logged into dc-1
 Pick a random user account you created previously
 Attempt to log in with it 10 times with a bad password
 <img width="441" height="474" alt="image" src="https://github.com/user-attachments/assets/1d698c8e-d78b-4687-805b-04dffaf95a05" />
 
 
-Configure Group Policy to Lockout the account after 5 attempts:
-How To Configure Account Lockout Threshold in Group Policy
-<img width="931" height="705" alt="image" src="https://github.com/user-attachments/assets/6a2f953c-e66b-4cc2-8768-0fb0ec9360cb" />
+
 
 
 Attempt to log in with it 6 times with a bad password
