@@ -19,7 +19,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Windows Server 2022
 - Windows 10 (21H2)
 
-<h2>Steps to Unlock Accounts when Locked Out</h2>
+<h2>Steps to Unlock Accounts</h2>
 
 In order for accounts to be locked out of access after multiple failed attempts, do the following<br />
 Configure Group Policy to Lockout the account after 5 attempts:
