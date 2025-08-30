@@ -3,7 +3,7 @@
 </p>
 
 <h1>Dealing with Account Lockouts</h1>
-This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
+This tutorial outlines how to deal with accounts that have been locked after multiple failed logins.<br />
 
 
 
