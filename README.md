@@ -26,36 +26,34 @@ Configure Group Policy to Lockout the account after 5 attempts:
 <img width="931" height="705" alt="image" src="https://github.com/user-attachments/assets/6a2f953c-e66b-4cc2-8768-0fb0ec9360cb" />
 
 
-Get logged into dc-1
-Pick a random user account you created previously
-Attempt to log in with it 10 times with a bad password
+
+After attemptting to log in with a bad password this will appear
+
 <img width="441" height="474" alt="image" src="https://github.com/user-attachments/assets/1d698c8e-d78b-4687-805b-04dffaf95a05" />
 
 
 
+After 5 failed failed login attempts, they should be locked out
 
-
-Attempt to log in with it 6 times with a bad password
 <img width="551" height="139" alt="image" src="https://github.com/user-attachments/assets/e9aa3564-3b87-47eb-ade6-ce3284e7d8af" />
 
 
-Observe that the account has been locked out within Active Directory
+To unlock the User, go to Active Directory Users & Controls, then 
+- Right Click on mydomain.com
+- Click on Find and search for the locked out user
 <img width="412" height="521" alt="Screenshot 2025-08-30 143547" src="https://github.com/user-attachments/assets/f11a6d4e-2ae8-42a8-8fa2-07f113519f1f" />
 
-Unlock the account
-<img width="402" height="533" alt="image" src="https://github.com/user-attachments/assets/8dd1c586-aec0-4662-bfb7-e792d6ee7a00" />
-
-Reset the password
 <img width="523" height="574" alt="image" src="https://github.com/user-attachments/assets/39a6dc21-8b5b-4865-a5bf-53511ecb35f2" />
 
-Attempt to login with it
 
-Enabling and Disabling Accounts
-Disable the same account in Active Directory
-Attempt to login with it, observe the error message
-Re-enable the account and attempt to login with it.
+Click on Properties then go the Account tab
+Click on the Unlock the account button and Apply 
 
-Observing Logs
-Observe the logs in the Domain Controller
-Observe the logs on the client Machine
-Precursor to cybersecurity and security operations: joshmadakor.tech/cyber
+<img width="402" height="533" alt="image" src="https://github.com/user-attachments/assets/8dd1c586-aec0-4662-bfb7-e792d6ee7a00" />
+
+The user can now log back in using their previous credentials, if they wish to change password, right click on the user and click on Reset Password and change accordingly
+Reset the password
+
+<img width="523" height="574" alt="image" src="https://github.com/user-attachments/assets/39a6dc21-8b5b-4865-a5bf-53511ecb35f2" />
+
+This now concludes how to unlock accounts.
