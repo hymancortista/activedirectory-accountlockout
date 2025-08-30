@@ -24,30 +24,39 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>Deployment and Configuration Steps</h2>
 
-Setup Domain Controller in Azure
-—
-Create a Resource Group - "Active-Directory-Lab"
-<img width="788" height="452" alt="image" src="https://github.com/user-attachments/assets/a7da11c0-b442-472b-bf0c-de963c90e06b" />
-
-Create a Virtual Network and Subnet
-<img width="772" height="726" alt="image" src="https://github.com/user-attachments/assets/94aea8b5-fc70-4634-8816-ad503a62a557" />
-
-Create the Domain Controller VM (Windows Server 2022) named “DC-1”<br />
-After VM is created, set Domain Controller’s NIC Private IP address to be static<br />
-<img width="754" height="826" alt="image" src="https://github.com/user-attachments/assets/aba121a7-c116-4e6b-a219-7e1afe31ddac" />
-
-Set DC-1's NIC Private IP address to STATIC<br />
-<img width="570" height="735" alt="image" src="https://github.com/user-attachments/assets/9b23623a-f4e4-42a0-a243-1fdbe1e3a0d4" />
-
-Setup Client-1 in Azure
-Create the Client VM (Windows 10) named “Client-1”
-<img width="634" height="771" alt="image" src="https://github.com/user-attachments/assets/e103237c-9e4d-4bea-bcad-05b6b2eb2b05" />
+Dealing with Account Lockouts
+Get logged into dc-1
+Pick a random user account you created previously
+Attempt to log in with it 10 times with a bad password
+<img width="441" height="474" alt="image" src="https://github.com/user-attachments/assets/1d698c8e-d78b-4687-805b-04dffaf95a05" />
 
 
-Attach it to the same region and Virtual Network as DC-1
-After VM is created, set Client-1’s DNS settings to DC-1’s Private IP address
-<img width="544" height="703" alt="image" src="https://github.com/user-attachments/assets/4e9a77e0-aa69-444f-9433-703f481e7f5f" />
+Configure Group Policy to Lockout the account after 5 attempts:
+How To Configure Account Lockout Threshold in Group Policy
+<img width="931" height="705" alt="image" src="https://github.com/user-attachments/assets/6a2f953c-e66b-4cc2-8768-0fb0ec9360cb" />
 
 
-Restart Client-1 from the Azure Portal, login and attempt to DC-1's private IP Address<br/>
-If the ping succeeded, you have successfully configured Client-1 VM to use the DC as its DNS server.
+Attempt to log in with it 6 times with a bad password
+<img width="551" height="139" alt="image" src="https://github.com/user-attachments/assets/e9aa3564-3b87-47eb-ade6-ce3284e7d8af" />
+
+
+Observe that the account has been locked out within Active Directory
+<img width="412" height="521" alt="Screenshot 2025-08-30 143547" src="https://github.com/user-attachments/assets/f11a6d4e-2ae8-42a8-8fa2-07f113519f1f" />
+
+Unlock the account
+<img width="402" height="533" alt="image" src="https://github.com/user-attachments/assets/8dd1c586-aec0-4662-bfb7-e792d6ee7a00" />
+
+Reset the password
+<img width="523" height="574" alt="image" src="https://github.com/user-attachments/assets/39a6dc21-8b5b-4865-a5bf-53511ecb35f2" />
+
+Attempt to login with it
+
+Enabling and Disabling Accounts
+Disable the same account in Active Directory
+Attempt to login with it, observe the error message
+Re-enable the account and attempt to login with it.
+
+Observing Logs
+Observe the logs in the Domain Controller
+Observe the logs on the client Machine
+Precursor to cybersecurity and security operations: joshmadakor.tech/cyber
